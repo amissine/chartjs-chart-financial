@@ -42,3 +42,10 @@ jspm_packages
 # Build files
 /Chart.Financial.js
 /Chart.Financial.min.js
+
+# vim
+*.swp
+*~
+
+# OS X
+.DS_Store

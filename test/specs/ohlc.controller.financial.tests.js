@@ -1,33 +1,6 @@
 describe('Financial controller tests', function() {
-	it('Should be constructed', function() {
-		var chart = window.acquireChart({ type: 'candlestick',
-			data: {
-				datasets: [{
-					data: []
-				}]
-			},
-			getDatasetMeta: function(datasetIndex) {
-				this.data.datasets[datasetIndex].meta = this.data.datasets[datasetIndex].meta || {
-					data: [],
-					dataset: null
-				};
-				return this.data.datasets[datasetIndex].meta;
-			}
-		});
-
-		var controller = new Chart.controllers.financial(chart, 0);
-		expect(controller).not.toBe(undefined);
-		expect(controller.index).toBe(0);
-
-		var meta = chart.getDatasetMeta(0);
-		expect(meta.data).toEqual([]);
-
-		controller.updateIndex(1);
-		expect(controller.index).toBe(1);
-	});
-
-	it('Should create candlestick elements for each data item during initialization', function () {
-		var chart = window.acquireChart({ type: 'candlestick',
+	it('Should create OHLC elements for each data item during initialization', function () {
+		var chart = window.acquireChart({ type: 'ohlc',
 			data: {
 				datasets: [{
 					data: [
@@ -53,11 +26,11 @@ describe('Financial controller tests', function() {
 			}
 		}, { persistent: true });
 
-		new Chart.controllers.candlestick(chart, 0);
+		new Chart.controllers.ohlc(chart, 0);
 		var meta = chart.getDatasetMeta(0);
 		expect(meta.data.length).toBe(10);
 		for (var i = 0; i < meta.data.length; i++) {
-			expect(meta.data[i] instanceof Chart.elements.Candlestick).toBe(true);
+			expect(meta.data[i] instanceof Chart.elements.Ohlc).toBe(true);
 		}
 	});
 
