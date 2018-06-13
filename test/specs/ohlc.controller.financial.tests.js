@@ -24,6 +24,30 @@ describe('Financial controller tests', function() {
 						{t: '2017-04-01 15:58', y: -11},
 						{t: '2017-04-01 15:59', y: 32},
 						{t: '2017-04-01 16:00', y: 15} ],
+      dataEma1 = [
+						{t: '2017-04-01 15:50', y: 1050},
+						{t: '2017-04-01 15:51', y: 1120},
+						{t: '2017-04-01 15:52', y: 1040},
+						{t: '2017-04-01 15:53', y: 1060},
+						{t: '2017-04-01 15:54', y: 1080},
+						{t: '2017-04-01 15:55', y: 1030},
+						{t: '2017-04-01 15:56', y: 1070},
+						{t: '2017-04-01 15:57', y: 1090},
+						{t: '2017-04-01 15:58', y: 1060},
+						{t: '2017-04-01 15:59', y: 1040},
+						{t: '2017-04-01 16:00', y: 1040} ],
+      dataEma2 = [
+						{t: '2017-04-01 15:50', y: 1100},
+						{t: '2017-04-01 15:51', y: 1090},
+						{t: '2017-04-01 15:52', y: 1080},
+						{t: '2017-04-01 15:53', y: 1070},
+						{t: '2017-04-01 15:54', y: 1060},
+						{t: '2017-04-01 15:55', y: 1050},
+						{t: '2017-04-01 15:56', y: 1040},
+						{t: '2017-04-01 15:57', y: 1030},
+						{t: '2017-04-01 15:58', y: 1020},
+						{t: '2017-04-01 15:59', y: 1010},
+						{t: '2017-04-01 16:00', y: 1030} ],
       scalesPriceVolume = [
         { id: 'yAxisPrice', position: 'left', gridLines: { drawOnChartArea: false } },
         { id: 'yAxisVolume', position: 'right', gridLines: { drawOnChartArea: true } } 
@@ -32,6 +56,8 @@ describe('Financial controller tests', function() {
 			  data: {
 				  datasets: [
             { label: 'OHLC', data:	dataOhlc, yAxisID: 'yAxisPrice' },
+            { label: 'Ema1', data: dataEma1, yAxisID: 'yAxisPrice', type: 'line', backgroundColor: 'rgba(35, 92, 92, 0.2)' },
+            { label: 'Ema2', data: dataEma2, yAxisID: 'yAxisPrice', type: 'line', backgroundColor: 'rgba(150, 98, 98, 0.4)' },
             { label: 'Volume', data: dataVolume, yAxisID: 'yAxisVolume', type: 'bar', backgroundColor: 'rgba(75, 192, 192, 0.4)' }
           ],
 			  },
