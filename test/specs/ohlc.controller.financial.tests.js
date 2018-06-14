@@ -75,7 +75,7 @@ describe('Financial controller tests', function() {
           ],
 			  },
         options: {
-          title: { display: true, text: 'Price and Volume Axes' },
+          title: { display: true, text: 'Price and Volume Data' },
           scales: { yAxes: scalesPriceVolume, xAxes: scaleX }
         }
 		  }, { persistent: true });
